@@ -1,0 +1,87 @@
+﻿@model IEnumerable<trabalhoClientes.Models.CadCliente>
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Adicionar Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bairro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+
+                <td>
+                    @item.Email
+                </td>
+
+                <td>
+                    @item.Telefone
+                </td>
+
+                <td>
+                    @item.cep
+                </td>
+
+                <td>
+                    @item.rua
+                </td>
+                
+                <td>
+                    @item.Numero
+                </td>
+
+                <td>
+                    @item.bairro
+                </td>
+
+               
+
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        Editar
+                    </a>
+                    <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@item.Id">
+                        Detalhes
+                    </a>
+                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                        Apagar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
